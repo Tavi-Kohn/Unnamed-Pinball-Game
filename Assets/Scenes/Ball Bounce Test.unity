@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 184066247}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1296621108}
@@ -766,6 +766,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b5c0c0473e6656e4c8cbc61a6c2faca4, type: 2}
+    - target: {fileID: 7570272797814671322, guid: 022ac6284f2995f43a31fad0ad9f5df0,
+        type: 3}
+      propertyPath: m_Limits.max
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570272797814671322, guid: 022ac6284f2995f43a31fad0ad9f5df0,
+        type: 3}
+      propertyPath: m_Limits.min
+      value: -30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 022ac6284f2995f43a31fad0ad9f5df0, type: 3}
 --- !u!1 &832575517
@@ -1169,8 +1179,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290913022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 30}
-  m_LocalScale: {x: 5, y: 1, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 240}
+  m_LocalScale: {x: 5, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1387,8 +1397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b805333480997c04893669c2e787ca5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceUp: 10000
+  ForceUp: 5000
   ForceDown: 1000
+  LockDelay: 0.5
 --- !u!43 &2083323153
 Mesh:
   m_ObjectHideFlags: 0
