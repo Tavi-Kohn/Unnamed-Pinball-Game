@@ -34,19 +34,22 @@ public class Launcher : MonoBehaviour
         
         if(Keyboard.current.zKey.wasPressedThisFrame && capturedB != null)
         {
+            timer = 0f;
             sc.enabled = false;
-            capturedB.isKinematic = false;
-            
+
+            capturedB.isKinematic = false;           
             capturedB.AddForce(transform.forward*launchForce);
             capturedB = null;
-            
         }
-
+        timer += Time.deltaTime;
     }
 
     private void FixedUpdate()
     {
-
+        if (timer > cooldown)
+        {
+            sc.enabled = true;
+        }
     }
     private void OnTriggerEnter(Collider collider)
     {
@@ -60,7 +63,7 @@ public class Launcher : MonoBehaviour
 
 
     }
-    private void cooldown]
+   
 }
 
 
