@@ -12,7 +12,6 @@ public class Launcher : MonoBehaviour
     public float MaxAngle;
     public float Speed;
     public float LaunchForce;
-    // private float lastLaunchTime;
     public float Cooldown;
     public Transform LaunchPosition;
     private Rigidbody capturedB;
@@ -23,7 +22,6 @@ public class Launcher : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // lastLaunchTime = Time.time - Cooldown;
         lr = GetComponent<LineRenderer>();
         sc = GetComponent<SphereCollider>();
     }
@@ -57,7 +55,6 @@ public class Launcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        // if (collider.gameObject.tag == "Player" && Time.fixedTime - lastLaunchTime >= Cooldown)
         if (collider.gameObject.tag == "Player")
         {
             collider.gameObject.transform.position = LaunchPosition.position;
