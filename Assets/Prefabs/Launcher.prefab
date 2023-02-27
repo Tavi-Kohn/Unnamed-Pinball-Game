@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4287799493962508952}
   - component: {fileID: 4287799493962508946}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Launcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxAngle: 60
   Speed: 10
-  launchForce: 1000
-  cooldown: 0.2
+  LaunchForce: 10000
+  Cooldown: 0
   LaunchPosition: {fileID: 4287799493962508957}
 --- !u!120 &4287799493962508952
 LineRenderer:

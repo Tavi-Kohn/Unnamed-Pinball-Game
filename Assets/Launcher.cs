@@ -11,16 +11,19 @@ public class Launcher : MonoBehaviour
     private SphereCollider sc;
     public float MaxAngle;
     public float Speed;
-    public float launchForce;
-    private float timer;
-    public float cooldown;
+    public float LaunchForce;
+    // private float lastLaunchTime;
+    public float Cooldown;
     public Transform LaunchPosition;
     private Rigidbody capturedB;
+
+    private float timer;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        // lastLaunchTime = Time.time - Cooldown;
         lr = GetComponent<LineRenderer>();
         sc = GetComponent<SphereCollider>();
     }
@@ -31,39 +34,37 @@ public class Launcher : MonoBehaviour
         var rot = transform.rotation.eulerAngles;
         rot.y = Mathf.Sin(Time.time * Speed) * MaxAngle;
         transform.rotation = Quaternion.Euler(rot);
-        
-        if(Keyboard.current.zKey.wasPressedThisFrame && capturedB != null)
+
+        if (Keyboard.current.zKey.wasPressedThisFrame && capturedB != null)
         {
             timer = 0f;
             sc.enabled = false;
 
-            capturedB.isKinematic = false;           
-            capturedB.AddForce(transform.forward*launchForce);
+            capturedB.isKinematic = false;
+            capturedB.AddForce(transform.forward * LaunchForce);
             capturedB = null;
         }
         timer += Time.deltaTime;
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        if (timer > cooldown)
+        if (timer > Cooldown)
         {
             sc.enabled = true;
         }
     }
+
     private void OnTriggerEnter(Collider collider)
     {
+        // if (collider.gameObject.tag == "Player" && Time.fixedTime - lastLaunchTime >= Cooldown)
         if (collider.gameObject.tag == "Player")
         {
-
             collider.gameObject.transform.position = LaunchPosition.position;
             collider.attachedRigidbody.isKinematic = true;
             capturedB = collider.attachedRigidbody;
         }
-
-
     }
-   
 }
 
 
